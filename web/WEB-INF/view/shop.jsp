@@ -36,5 +36,11 @@
     </c:forEach>
 </table>
 
+
+<a href="/cart">
+    <input type="button" value="sprawdz zawartosc koszyka" />
+</a>
+
+
 </body>
 </html>

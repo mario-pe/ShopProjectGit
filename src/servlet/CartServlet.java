@@ -3,6 +3,7 @@ package servlet;
 import dao.ItemDao;
 import model.Cart;
 import model.Item;
+import model.OrderItem;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,8 +25,13 @@ public class CartServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
-        response.getWriter().println("twoj koszyk");
-
+        response.getWriter().println("twoj koszyk  servlet   /cart");
+        List<OrderItem> orderItems = (List<OrderItem>) request.getSession().getAttribute("orderItems");
+//        for(OrderItem oi: orderItems){
+//            response.getWriter().println(oi.getProducent()+" " + oi.getModel()+" "+ oi.getPrice() +" " +oi.getQuantity());
+//        }
+        request.setAttribute("orderItems",orderItems);
+        request.getRequestDispatcher(request.getContextPath()+"WEB-INF/view/cart.jsp").forward(request,response);
 
     }
 }

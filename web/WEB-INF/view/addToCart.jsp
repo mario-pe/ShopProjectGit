@@ -11,29 +11,29 @@
 <head>
     <title>Dodaj do koszyka</title>
 </head>
-<c:url>
 
 
-${item.producent} </br> ${item.model}
-<form action="get">
+${item.producent} </br> ${item.model} </br> ${item.price}
+
+<form action="/adding" method="get">
     <table>
         <tr>
             <td> podaj ilosc</td>
             <td> <input type="text" name="quantity"/> </td>
 
+
         </tr>
     </table>
-
+    <input type="hidden" name="id" value="${item.id}">
+    <input type="hidden" name="producent" value="${item.producent}">
+    <input type="hidden" name="model" value="${item.model}">
+    <input type="hidden" name="price" value="${item.price}">
     <input type="submit" value="dodaj do koszyka"/>
 </form>
 
 
-<c:url var="url" scope="page" value="/cart">
-    <c:param name="id" value="${item.id}" />
-    <c param name="quantity" value="quantity"/>
-</c:url>
 
-<form  action="${url}">
+<form  action="/cart">
     <input type="submit" value="sprawdz zawartosc koszyka" />
 </form>
 
