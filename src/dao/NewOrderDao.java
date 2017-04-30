@@ -13,20 +13,21 @@ import java.util.List;
 public class NewOrderDao {
     private EntityManager em;
 
-    public NewOrderDao(EntityManager em){
-        this.em=em;
+    public NewOrderDao(EntityManager em) {
+        this.em = em;
     }
-    public List getNewOrders(){
+
+    public List getNewOrders() {
         List<Order> list = em.createQuery("Select o from Order o").getResultList();
         return list;
     }
 
-    public Order getNewOrderById(int id){
+    public Order getNewOrderById(int id) {
         this.em.clear();
         return this.em.find(Order.class, id);
     }
 
-    public boolean addOrder(Order order){
+    public boolean addOrder(Order order) {
         EntityTransaction et = em.getTransaction();
         try {
             et.begin();

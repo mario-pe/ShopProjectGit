@@ -17,43 +17,31 @@
 <h2> Produkty </h2>
 <form action="/order" method="get">
 
-    <select name="country">
-        <c:forEach items="${countries}" var="country">
-            <option value="${country.code} " ${param.country eq country.code ? 'selected' : ''}>${country.name}</option>
+    <c:forEach var="item" items="${orderItems}" varStatus="i">
+
+        <td>${i.index + 1 }</td>
+        <td>${item.producent}</td>
+        <td>${item.model}</td>
+        <td>${item.price}</td>
+        <td>${item.quantity}</td>
+        </br>
+    </c:forEach>
+    <select name=payment>
+        <c:forEach var="payment" items="${payments}" varStatus="i">
+            <option value="${payment.type}" ${param.payment ? 'selected' : ''}>${payment.type}</option>
+        </c:forEach>
+    </select>
+    </br>
+
+    <select name=shipping>
+        <c:forEach var="shipping" items="${shipping}" varStatus="i">
+            <option value="${shipping.type}" ${param.shipping ? 'selected' : ''}>${shipping.type}</option>
         </c:forEach>
     </select>
 
 
-<c:forEach var="item" items="${orderItems}" varStatus="i">
-
-    <td>${i.index + 1 }</td>
-    <td>${item.producent}</td>
-    <td>${item.model}</td>
-    <td>${item.price}</td>
-    <td>${item.quantity}</td>
-
-</c:forEach>
-<select name = payment>
-<c:forEach var="payment" items="${payments}" varStatus="i">
-    <option value="${payment.type}" ${param.payment ? 'selected' : ''}>${payment.type}</option>
-
-    <%--<td>${i.index + 1 }</td>--%>
-    <%--<td>${payment.type}</td>--%>
-
-</c:forEach>
-</select>
-
-<c:forEach var="shipping" items="${shipping}" varStatus="i">
-
-    <td>${i.index + 1 }</td>
-    <td>${shipping.type}</td>
-    <td>${shipping.price}</td>
-
-</c:forEach>
-
-<input type="submit" value="złóż zamowienie"/>
+    <input type="submit" value="złóż zamowienie"/>
 </form>
-
 
 
 </body>

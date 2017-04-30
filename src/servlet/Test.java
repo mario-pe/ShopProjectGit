@@ -45,7 +45,7 @@ public class Test extends HttpServlet {
         NewOrderDao newOrderDao = (NewOrderDao) request.getAttribute("newOrderDao");
 //        Customer customer = customerDao.getCustomerByLogin("aa");
 
-        Customer customer = customerDao.getCustomerById(121);
+        Customer customer = customerDao.getCustomerById(122);
         pw.println(customer.getPassword());
 
 
@@ -54,23 +54,30 @@ public class Test extends HttpServlet {
             pw.println(" z adressu " + a.getCity());
         for(Order o: customer.getOrders())
             pw.println("z orderu "+ o.getId());
-        Payment payment= paymentDao.getPaymentById(1);
-        Shipping shipping = shippingDao.getShippingById(1);
-        Storehouse storehouse = storehouseDao.getStorehouseById(2);
-        Timestamp date = new Timestamp(new Date().getTime());
-        pw.println("Stock magazyn "+ storehouse.getStock());
-        response.getWriter().println('\n' + "DANE DO ZAMOWIENIA");
-        response.getWriter().println("data  " + date );
-        response.getWriter().println(shipping.getType());
-        response.getWriter().println(shipping.getPrice());
-        response.getWriter().println(payment.getType());
+
+        Order order= newOrderDao.getNewOrderById(21);
+        for(OrderItem oi: order.getOrderItems())
+            pw.println("Order Items z 21 " + oi.getId() );
+
+
+
+//        Payment payment= paymentDao.getPaymentById(1);
+//        Shipping shipping = shippingDao.getShippingById(1);
+//        Storehouse storehouse = storehouseDao.getStorehouseById(2);
+//        Timestamp date = new Timestamp(new Date().getTime());
+//        pw.println("Stock magazyn "+ storehouse.getStock());
+//        response.getWriter().println('\n' + "DANE DO ZAMOWIENIA");
+//        response.getWriter().println("data  " + date );
+//        response.getWriter().println(shipping.getType());
+//        response.getWriter().println(shipping.getPrice());
+//        response.getWriter().println(payment.getType());
 //      List<Order>  ol = orderDao.getOrds();
 //      List<Item>  oi = itemDao.getItems();
 
 //      for(Item o: oi)
 //          pw.println("item id" + o.getId());
 
-        Order order = new Order();
+//        Order order = new Order();
 //
 
 

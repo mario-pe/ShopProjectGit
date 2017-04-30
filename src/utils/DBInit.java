@@ -34,7 +34,7 @@ public class DBInit implements ServletRequestListener {
         ShippingDao shippingDao = new ShippingDao(em);
         StorehouseDao storehouseDao = new StorehouseDao(em);
         AdminDao adminDao = new AdminDao(em);
-        NewOrderDao newOrderDao = new NewOrderDao(em);
+        NewOrderDao orderDao = new NewOrderDao(em);
 
 
 
@@ -48,7 +48,7 @@ public class DBInit implements ServletRequestListener {
         servletRequest.setAttribute("shippingDao", shippingDao);
         servletRequest.setAttribute("storehouseDao", storehouseDao);
         servletRequest.setAttribute("adminDao", adminDao);
-        servletRequest.setAttribute("newOrderDao", newOrderDao);
+        servletRequest.setAttribute("orderDao", orderDao);
 
     }
 }

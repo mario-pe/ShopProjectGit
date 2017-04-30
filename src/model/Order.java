@@ -23,7 +23,6 @@ public class Order {
     private Set<OrderItem> orderItems;
 
     @ManyToOne(cascade = {CascadeType.MERGE})
-//    @JoinTable(name = "customer" )
     @JoinColumn(name = "customer_id")//, referencedColumnName="id")
     private Customer customer;
 
