@@ -16,7 +16,7 @@
     <title>Sklep ze HEJ</title>
 </head>
 <body>
-<h1>Wtaj w sklepiku</h1>
+<h1>Wtaj w sklepiku ze hej</h1>
 
 <table>
     <tr>
@@ -25,8 +25,10 @@
         <th>Model</th>
         <th>Cena</th>
     </tr>
+
     <c:forEach var="item" items="${itemList}">
         <tr>
+
             <td>
                 <c:url var="url" scope="page" value= "/login">
                     <c:param name="id" value="${item.id}"/>

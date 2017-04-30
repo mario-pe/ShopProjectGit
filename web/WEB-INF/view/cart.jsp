@@ -14,31 +14,63 @@
 <body>
 <c:choose>
     <c:when test="${orderItems !=null}">
-<table>
-    <tr>
-        <td>nr</td>
-        <td>Producent</td>
-        <td>Model</td>
-        <td>Cena</td>
-        <td>Price</td>
-    </tr>
-    <c:set var="i" scope="page" value="0"/>
-    <c:forEach var="item" items="${orderItems}">
+        <table>
+            <tr>
+                <td>nr</td>
+                <td>Producent</td>
+                <td>Model</td>
+                <td>Cena</td>
+                <td>Ilosc</td>
+            </tr>
+                <%--<c:set var="i" scope="page" value="0" />--%>
 
-            <td>${i+1}</td>
-            <td>${item.producent}</td>
-            <td>${item.model}</td>
-            <td>${item.price}</td>
-            <td>${item.quantity}</td>
+            <c:forEach var="item" items="${orderItems}" varStatus="i">
 
-                <%--<c:url var="url" scope="page" value="/cartEdit">--%>
-                    <%--<c:param name="id" value="${item.id}"/>--%>
+                <td>${i.index + 1 }</td>
+                <td>${item.producent}</td>
+                <td>${item.model}</td>
+                <td>${item.price}</td>
+                <td>${item.quantity}</td>
+
+
+                <form action="/editCart" method="get">
+                    <td>
+                        <select name="newQuantity">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+
+                        <input type="hidden" name="index" value="${i.index}">
+                        <input type="hidden" name="action" value="edit">
+                        <input type="submit" value="edytuj"/>
+                    </td>
+                </form>
+
+
+                <%--<c:url var="url_edit" scope="page" value="/editCart">--%>
+                <%--<c:param name="index" value="${i.index}"/>--%>
+                <%--<c:param name="action" value="edit"/>--%>
+                <%--<c:param name="quantity" value="${quantity}"/>--%>
                 <%--</c:url>--%>
-            <td> <a href="${url}"> <input type="button" value="edytuj" /></a> </td>
-            <td><input type="button" value="usun"> <c:remove var="item"/> </td>
-        </tr>
-    </c:forEach>
-</table>
+                <%--<td> <a href="${url_edit}"> <input type="button" value="edytuj" /></a> </td>--%>
+
+                <c:url var="url_remove" scope="page" value="/editCart">
+                    <c:param name="index" value="${i.index}"/>
+                    <c:param name="action" value="remove"/>
+                </c:url>
+
+                <td><a href="${url_remove}"> <input type="button" value="usun"> </a></td>
+                </tr>
+            </c:forEach>
+        </table>
     </c:when>
     <c:otherwise>
         <c:out value="niemasz jeszcze nic w koszyku"/>
@@ -46,10 +78,11 @@
 </c:choose>
 ${item.producent} </br> ${item.model}
 <a href="/shop">
-    <input type="button" value="wróc do zakupów" />
+    <input type="button" value="wróc do zakupów"/>
 </a>
-
-
+<a href="/shop">
+    <input type="button" value="wróc do zakupów"/>
+</a>
 
 </body>
 </html>

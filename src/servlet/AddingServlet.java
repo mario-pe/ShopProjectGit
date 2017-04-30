@@ -23,50 +23,30 @@ public class AddingServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        response.getWriter().println("dodawanie produktu do koszyka" );
-
-
-//        Order order;
-//
-//        if(request.getSession().getAttribute("order") == null) {
-//            order = new Order();
-//            request.getSession().setAttribute("order",order);
-//        }
-//        else {
-//            order = (Order) request.getSession().getAttribute("order");
-//        }
+        response.getWriter().println("dodawanie produktu do koszyka" );
 
         ArrayList<OrderItem> orderItems;
         if (request.getSession().getAttribute("orderItems") == null) {
             orderItems = new ArrayList<>();
-
             addItem(request, orderItems);
-
-            request.getSession().setAttribute("orderItems", orderItems);
-            response.sendRedirect(request.getContextPath() + "/shop");
-
         }
+
         else {
             orderItems = (ArrayList<OrderItem>) request.getSession().getAttribute("orderItems");
             int itemId = Integer.parseInt(request.getParameter("id"));
-            try{
-            for (OrderItem oi : orderItems) {
-                if (oi.getItem_id() == itemId) {
-                    oi.setQuantity(oi.getQuantity() + Integer.parseInt(request.getParameter("quantity")));
+            int quantity = Integer.parseInt(request.getParameter("quantity"));
 
-                } else
-                    addItem(request, orderItems);
-            }
-            }catch(Exception e){
-                e.printStackTrace();
-            }
-                request.getSession().setAttribute("orderItems", orderItems);
+            if(!duplicateDetector(orderItems,itemId,quantity))
+            addItem(request, orderItems);
+        }
 
-                response.sendRedirect(request.getContextPath() + "/shop");
-            }
-
+        request.getSession().setAttribute("orderItems", orderItems);
+        response.sendRedirect(request.getContextPath() + "/shop");
 
         }
+        /*
+        Adding new item to cart
+         */
 
     public static void addItem(HttpServletRequest request,List<OrderItem> orderItems){
         OrderItem orderItem = new OrderItem();
@@ -76,5 +56,19 @@ public class AddingServlet extends HttpServlet {
         orderItem.setPrice(Double.parseDouble(request.getParameter("price")));
         orderItem.setQuantity(Integer.parseInt(request.getParameter("quantity")));
         orderItems.add(orderItem);
+    }
+        /*
+         detection of duplicated items i cart
+         param ol: list of products
+
+         */
+    public static boolean duplicateDetector(List<OrderItem> ol, int id, int q){
+        for(OrderItem oi: ol) {
+            if (oi.getItem_id() == id){
+                oi.setQuantity(oi.getQuantity() + q);
+                return true;
+            }
+        }
+        return false;
     }
 }
