@@ -77,12 +77,14 @@
     </c:otherwise>
 </c:choose>
 ${item.producent} </br> ${item.model}
-<a href="/shop">
-    <input type="button" value="wróc do zakupów"/>
-</a>
-<a href="/shop">
-    <input type="button" value="wróc do zakupów"/>
-</a>
+
+<form action="/preOrder">
+    <input type="submit" value=" zlóz zamóweinie"/>
+</form>
+<form action="/shop">
+    <input type="submit" value="wróc do zakupów"/>
+</form>
+
 
 </body>
 </html>

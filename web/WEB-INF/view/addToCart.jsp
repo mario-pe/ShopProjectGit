@@ -12,9 +12,11 @@
     <title>Dodaj do koszyka</title>
 </head>
 
-
-${item.producent} </br> ${item.model} </br> ${item.price}
-
+<table>
+    <tr>${item.producent}</tr>
+    <tr> ${item.model}</tr>
+    <tr>${item.price}</tr>
+</table>
 <form action="/adding" method="get">
     <table>
         <tr>
@@ -44,11 +46,17 @@ ${item.producent} </br> ${item.model} </br> ${item.price}
     <input type="submit" value="dodaj do koszyka"/>
 </form>
 
-
-
-<form  action="/cart">
-    <input type="submit" value="sprawdz zawartosc koszyka" />
+<form action="/shop">
+    <input type="submit" value="wróć do zakupów"/>
 </form>
+
+<form action="/preOrder">
+    <input type="submit" value=" złóż zamóweinie"/>
+</form>
+<form action="/cart">
+    <input type="submit" value=" zawartosc wózka"/>
+</form>
+
 
 </body>
 </html>

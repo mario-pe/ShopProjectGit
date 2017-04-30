@@ -37,9 +37,13 @@
 </table>
 
 
-<a href="/cart">
-    <input type="button" value="sprawdz zawartosc koszyka" />
-</a>
+
+<form action="/preOrder">
+    <input type="submit" value=" złóż zamóweinie"/>
+</form>
+<form action="/cart">
+    <input type="submit" value=" sprawdz zawartość wózka"/>
+</form>
 
 
 </body>
