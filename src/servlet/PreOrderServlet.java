@@ -33,13 +33,20 @@ public class PreOrderServlet extends HttpServlet {
         List<Shipping> shipping = shippingDao.getShipping();
         Customer customer = (Customer) request.getSession().getAttribute("customer");
 
-        request.setAttribute("orderItems",orderItems);
-        request.setAttribute("payments",payments);
-        request.setAttribute("shipping",shipping);
-        request.setAttribute("customer",customer);
+        if(orderItems == null){
+            request.setAttribute("info", "niemasz żadnych produktów w koszyku");
+            request.setAttribute("orderItems", null);
+            request.getRequestDispatcher(request.getContextPath() + "WEB-INF/view/preorder.jsp").forward(request, response);
+        }
+        else {
+            request.setAttribute("info", "złóż zamóweinie");
+            request.setAttribute("orderItems", orderItems);
+            request.setAttribute("payments", payments);
+            request.setAttribute("shipping", shipping);
+            request.setAttribute("customer", customer);
 
-        request.getRequestDispatcher(request.getContextPath()+"WEB-INF/view/preorder.jsp").forward(request,response);
-
+            request.getRequestDispatcher(request.getContextPath() + "WEB-INF/view/preorder.jsp").forward(request, response);
+        }
 
 
 

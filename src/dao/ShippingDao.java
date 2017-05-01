@@ -17,7 +17,7 @@ public class ShippingDao {
     }
 
     public List getShipping(){
-        List<Shipping> list = em.createQuery("SELECT s FROM Shipping s").getResultList();
+        List<Shipping> list = em.createQuery("SELECT s FROM Shipping s order by s.price desc").getResultList();
         return list;
     }
 

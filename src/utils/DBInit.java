@@ -3,15 +3,10 @@ package utils; /**
  */
 
 import dao.*;
-import model.Address;
 
 import javax.persistence.*;
 import javax.servlet.*;
 import javax.servlet.annotation.WebListener;
-import javax.servlet.http.HttpSessionAttributeListener;
-import javax.servlet.http.HttpSessionEvent;
-import javax.servlet.http.HttpSessionListener;
-import javax.servlet.http.HttpSessionBindingEvent;
 
 @WebListener()
 public class DBInit implements ServletRequestListener {
@@ -27,21 +22,20 @@ public class DBInit implements ServletRequestListener {
         EntityManager em = DBConfig.createEntityManager();
         AddressDao addressDao = new AddressDao(em);
     	 CustomerDao customerDao = new CustomerDao(em);
-//        OrderDao orderDao = new OrderDao(em);
+
         ItemDao itemDao = new ItemDao(em);
         OrderItemDao orderItemDao = new OrderItemDao(em);
         PaymentDao paymentDao = new PaymentDao(em);
         ShippingDao shippingDao = new ShippingDao(em);
         StorehouseDao storehouseDao = new StorehouseDao(em);
         AdminDao adminDao = new AdminDao(em);
-        NewOrderDao orderDao = new NewOrderDao(em);
+        OrderDao orderDao = new OrderDao(em);
 
 
 
         ServletRequest servletRequest = servletRequestEvent.getServletRequest();
         servletRequest.setAttribute("customerDao",customerDao);
         servletRequest.setAttribute("addressDao",addressDao);
-//        servletRequest.setAttribute("orderDao", orderDao);
         servletRequest.setAttribute("itemDao", itemDao);
         servletRequest.setAttribute("orderItemDao", orderItemDao);
         servletRequest.setAttribute("paymentDao", paymentDao);

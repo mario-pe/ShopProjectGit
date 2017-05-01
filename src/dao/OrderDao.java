@@ -10,10 +10,10 @@ import java.util.List;
 /**
  * Created by mario on 27.04.2017.
  */
-public class NewOrderDao {
+public class OrderDao {
     private EntityManager em;
 
-    public NewOrderDao(EntityManager em) {
+    public OrderDao(EntityManager em) {
         this.em = em;
     }
 

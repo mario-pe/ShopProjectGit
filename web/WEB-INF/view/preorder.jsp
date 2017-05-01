@@ -12,37 +12,44 @@
     <title>Sklep że Hej</title>
 </head>
 <body>
-<h1> Zamówieni</h1>
-<p>no to </p> ${customer.firstName} <p> złóż zamówienie </p>
-<h2> Produkty </h2>
-<form action="/order" method="get">
+${customer.firstName} ${info}
+<c:choose>
+    <c:when test="${orderItems != null}">
+        <h2> Produkty </h2>
+        <form action="/order" method="get">
 
-    <c:forEach var="item" items="${orderItems}" varStatus="i">
+            <c:forEach var="item" items="${orderItems}" varStatus="i">
 
-        <td>${i.index + 1 }</td>
-        <td>${item.producent}</td>
-        <td>${item.model}</td>
-        <td>${item.price}</td>
-        <td>${item.quantity}</td>
-        </br>
-    </c:forEach>
-    <select name=payment>
-        <c:forEach var="payment" items="${payments}" varStatus="i">
-            <option value="${payment.type}" ${param.payment ? 'selected' : ''}>${payment.type}</option>
-        </c:forEach>
-    </select>
-    </br>
+                <td>${i.index + 1 }</td>
+                <td>${item.producent}</td>
+                <td>${item.model}</td>
+                <td>${item.price}</td>
+                <td>${item.quantity}</td>
+                </br>
+            </c:forEach>
+            <select name=payment>
+                <c:forEach var="payment" items="${payments}" >
+                    <option value="${payment.type}" ${param.payment ? 'selected' : ''}>${payment.type} </option>
 
-    <select name=shipping>
-        <c:forEach var="shipping" items="${shipping}" varStatus="i">
-            <option value="${shipping.type}" ${param.shipping ? 'selected' : ''}>${shipping.type}</option>
-        </c:forEach>
-    </select>
+                </c:forEach>
+            </select>
+            </br>
+
+            <select name=shipping>
+                <c:forEach var="shipping" items="${shipping}" varStatus="i=1" >
+                    <option value="${shipping.id}" ${param.shipping  ? 'selected' : ''}> ${i} ${shipping.type} cena: ${shipping.price}</option>
+                </c:forEach>
+            </select>
 
 
-    <input type="submit" value="złóż zamowienie"/>
+            <input type="submit" value="złóż zamowienie"/>
+        </form>
+    </c:when>
+
+</c:choose>
+<form action="/shop">
+    <input type="submit" value="wróc do zakupów"/>
 </form>
-
 
 </body>
 </html>

@@ -15,8 +15,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Timestamp;
-import java.util.Date;
 
 /**
  * Created by mario on 25.04.2017.
@@ -42,7 +40,7 @@ public class Test extends HttpServlet {
 //        ItemDao itemDao = (ItemDao) request.getAttribute("itemDao");
 //        OrderItemDao orderItemDao = (OrderItemDao) request.getAttribute("orderItemDao");
         StorehouseDao storehouseDao = (StorehouseDao) request.getAttribute("storehouseDao");
-        NewOrderDao newOrderDao = (NewOrderDao) request.getAttribute("newOrderDao");
+        OrderDao orderDao = (OrderDao) request.getAttribute("orderDao");
 //        Customer customer = customerDao.getCustomerByLogin("aa");
 
         Customer customer = customerDao.getCustomerById(122);
@@ -55,7 +53,7 @@ public class Test extends HttpServlet {
         for(Order o: customer.getOrders())
             pw.println("z orderu "+ o.getId());
 
-        Order order= newOrderDao.getNewOrderById(21);
+        Order order= orderDao.getNewOrderById(21);
         for(OrderItem oi: order.getOrderItems())
             pw.println("Order Items z 21 " + oi.getId() );
 

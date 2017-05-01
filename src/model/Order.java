@@ -2,6 +2,7 @@ package model;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -88,5 +89,14 @@ public class Order {
 
     public void setShippingCost(double shippingCost) {
         this.shippingCost = shippingCost;
+    }
+
+    public double wholeValueOrder(List<OrderItem> orderItemList, double shipping){
+        double value = 0;
+        for(OrderItem oi:orderItemList) {
+            value = oi.getQuantity() * oi.getPrice();
+        }
+        value += shipping;
+        return value;
     }
 }
