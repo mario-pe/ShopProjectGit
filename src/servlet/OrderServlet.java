@@ -1,12 +1,10 @@
 package servlet;
 
+import dao.ItemDao;
 import dao.OrderDao;
 import dao.OrderItemDao;
 import dao.ShippingDao;
-import model.Customer;
-import model.Order;
-import model.OrderItem;
-import model.Shipping;
+import model.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -31,6 +29,7 @@ public class OrderServlet extends HttpServlet {
         ShippingDao shippingDao = (ShippingDao) request.getAttribute("shippingDao");
         OrderDao orderDao = (OrderDao) request.getAttribute("orderDao");
         OrderItemDao orderItemDao = (OrderItemDao) request.getAttribute("orderItemDao");
+        ItemDao itemDao = (ItemDao) request.getAttribute("itemDao");
 
         String payment = request.getParameter("payment");
         Customer customer = (Customer) request.getSession().getAttribute("customer");
@@ -53,9 +52,11 @@ public class OrderServlet extends HttpServlet {
             order.setWholeValue(order.wholeValueOrder(orderItems, shipping.getPrice()));
             if (orderDao.addOrder(order)) {
                 String info = "złożyłes zamówienie, numer zamoweinia to " + order.getId();
-                for (OrderItem oi : orderItems) {       //making connections between orderItems and order
-                    oi.setOrder(order);
-                    orderItemDao.addOrderItem(oi);
+                for (OrderItem oi : orderItems) {
+                    oi.setOrder(order);                 //making connections between orderItems and order
+                    Item item = itemDao.getItemById(oi.getItem_id());  // updating current stock
+                    item.setStock(item.getStock() - oi.getQuantity());
+                    orderItemDao.addOrderItem(oi);      // orderItem added to database
                 }
                 request.setAttribute("info", info);
                 request.getSession().removeAttribute("orderItems");
