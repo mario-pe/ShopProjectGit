@@ -31,7 +31,6 @@ public class ShopServlet extends HttpServlet {
        Customer c = (Customer) request.getSession().getAttribute("customer");
 
 //        List<Cart> cartList = new ArrayList<>();
-//
 //        request.getSession().setAttribute("cartList",cartList); //
 
         request.getRequestDispatcher("WEB-INF/view/shop.jsp").forward(request,response);

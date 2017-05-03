@@ -94,7 +94,7 @@ public class Order {
     public double wholeValueOrder(List<OrderItem> orderItemList, double shipping){
         double value = 0;
         for(OrderItem oi:orderItemList) {
-            value = oi.getQuantity() * oi.getPrice();
+            value += oi.getQuantity() * oi.getPrice();
         }
         value += shipping;
         return value;

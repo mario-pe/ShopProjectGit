@@ -10,35 +10,32 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Created by mario on 30.04.2017.
+ * Created by mario on 03.05.2017.
  */
-@WebFilter(filterName = "LoginFilter", value = "/*")
-public class LoginFilter implements Filter {
+@WebFilter(filterName = "RoleFilter", value = "/shop")
+public class RoleFilter implements Filter {
     public void destroy() {
     }
 
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws ServletException, IOException {
+
         HttpServletRequest request = (HttpServletRequest) req;
         HttpServletResponse response = (HttpServletResponse) resp;
         response.setCharacterEncoding("utf-8");
+        CustomerDao customerDao = (CustomerDao) request.getAttribute("customerDao");
         String login = request.getRemoteUser();
+        Customer customer =(Customer) request.getSession().getAttribute("customer");
+String role = customerDao.getRoleByLogin(customer.getLogin());
+        if(role.equals("customer")){
+            request.getRequestDispatcher(request.getContextPath() + "/shop").forward(request,response);
 
-        if (login != null) {
-            Customer customer = (Customer) request.getSession().getAttribute("customer");
-
-            if (customer == null) {
-
-
-
-                CustomerDao customerDao = (CustomerDao) req.getAttribute("customerDao");
-                customer = customerDao.getCustomerByLogin(login);
-                request.getSession().setAttribute("customer", customer);
-            }
         }
+        else {
+            request.getRequestDispatcher(request.getContextPath() + "/admin").forward(request, response);
 
-        chain.doFilter(request, response);
+        }
+        chain.doFilter(req, resp);
     }
-
 
     public void init(FilterConfig config) throws ServletException {
 

@@ -50,5 +50,6 @@
 <a href="/test">strona testowa</a>
 <a href="/register">Rejestracja</a>
 </br>
+<a href="/admin">admin</a>
 </body>
 </html>

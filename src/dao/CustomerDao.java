@@ -2,6 +2,7 @@ package dao;
 
 import model.Customer;
 import model.Role;
+import org.hibernate.sql.Select;
 
 
 import javax.persistence.EntityManager;
@@ -22,9 +23,6 @@ public class CustomerDao {
     public CustomerDao(EntityManager em) {
         this.em = em;
     }
-//	public UserDao(){
-//		this.em = DBConfig.getEntityManagerFactory().createEntityManager();
-//	}
 
     public List<Customer> getCustomers() {
         List<Customer> list = em.createQuery("SELECT c FROM Customer c").getResultList();
@@ -47,6 +45,11 @@ public class CustomerDao {
             return false;
         }
     }
+    public String getRoleByLogin(String login){
+        Role role =(Role) em.createQuery("Select r from Role r where r.login =:login " ).setParameter("login",login).getSingleResult();
+
+        return role.getR();
+    }
 
     public Customer getCustomerById(int id) {
         this.em.clear();
@@ -58,7 +61,6 @@ public class CustomerDao {
         Customer customer = (Customer) em.createQuery("Select c from Customer c where c.login = :login").setParameter("login", login).getSingleResult();
         return customer;
     }
-
 
     public String getMD5(String dane) {
         MessageDigest md5;
@@ -96,4 +98,6 @@ public class CustomerDao {
             return false;
         }
     }
+
+
 }
