@@ -17,6 +17,7 @@ public class LogoutServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/plain;charset=utf-8");
         request.getSession().setAttribute("customer",null);
 //            request.getSession().removeAttribute("customer");
         request.logout();

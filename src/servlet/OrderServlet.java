@@ -26,6 +26,7 @@ public class OrderServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/plain;charset=utf-8");
         ShippingDao shippingDao = (ShippingDao) request.getAttribute("shippingDao");
         OrderDao orderDao = (OrderDao) request.getAttribute("orderDao");
         OrderItemDao orderItemDao = (OrderItemDao) request.getAttribute("orderItemDao");

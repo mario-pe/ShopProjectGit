@@ -1,6 +1,7 @@
 package servlet;
 
 import dao.ItemDao;
+import model.Customer;
 import model.Item;
 
 import javax.servlet.ServletException;
@@ -21,8 +22,12 @@ public class IndexServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/plain;charset=utf-8");
         ItemDao itemDao = (ItemDao) request.getAttribute("itemDao");
         List<Item> itemList = itemDao.getItems();
+        Customer  c = (Customer) request.getSession().getAttribute("customer");
+
+//        if( c != null)
 
         request.setAttribute("itemList",itemList);
 //        request.getRequestDispatcher("WEB-INF/index.jsp").forward(request, response);

@@ -20,6 +20,7 @@ public class NewItemCartServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/plain;charset=utf-8");
         ItemDao itemDao = (ItemDao) request.getAttribute("itemDao");
 
         int id = Integer.parseInt(request.getParameter("id"));

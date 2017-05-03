@@ -2,6 +2,7 @@ package servlet;
 
 import dao.ItemDao;
 import model.Cart;
+import model.Customer;
 import model.Item;
 
 import javax.servlet.ServletException;
@@ -23,14 +24,15 @@ public class ShopServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/plain;charset=utf-8");
         ItemDao itemDao = (ItemDao) request.getAttribute("itemDao");
         List<Item> itemList = itemDao.getItems();
         request.getSession().setAttribute("itemList", itemList);
+       Customer c = (Customer) request.getSession().getAttribute("customer");
 
-
-        List<Cart> cartList = new ArrayList<>();
-
-        request.getSession().setAttribute("cartList",cartList);
+//        List<Cart> cartList = new ArrayList<>();
+//
+//        request.getSession().setAttribute("cartList",cartList); //
 
         request.getRequestDispatcher("WEB-INF/view/shop.jsp").forward(request,response);
 //        request.getRequestDispatcher("/index.jsp").forward(request, response);

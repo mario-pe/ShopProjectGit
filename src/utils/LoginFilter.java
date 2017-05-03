@@ -12,7 +12,7 @@ import java.io.IOException;
 /**
  * Created by mario on 30.04.2017.
  */
-@WebFilter(filterName = "LoginFilter")
+@WebFilter(filterName = "LoginFilter", value = "/*")
 public class LoginFilter implements Filter {
     public void destroy() {
     }
@@ -20,21 +20,20 @@ public class LoginFilter implements Filter {
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws ServletException, IOException {
         HttpServletRequest request = (HttpServletRequest) req;
         HttpServletResponse response = (HttpServletResponse) resp;
-        req.setCharacterEncoding("utf-8");
-        String login = "aa";
-//		String password;
-//		String login = req.getRemoteUser();
-        Customer customer = null;
-        CustomerDao customerDao = null;
-        if (login != null)
-            customer = (Customer) request.getSession().getAttribute("customer");
-        if (customer == null)
-            customerDao = (CustomerDao) req.getAttribute("customerDao");
-        customer = customerDao.getCustomerByLogin(login);
-        request.getSession().setAttribute("customer", customer);
-        if (request.getSession().getAttribute("customer") != null) {
-            chain.doFilter(request, response);
-        } else response.sendRedirect(request.getContextPath() + "/index");
+        response.setCharacterEncoding("utf-8");
+        String login = request.getRemoteUser();
+
+        if (login != null) {
+            Customer customer = (Customer) request.getSession().getAttribute("customer");
+
+            if (customer == null) {
+                CustomerDao customerDao = (CustomerDao) req.getAttribute("customerDao");
+                customer = customerDao.getCustomerByLogin(login);
+                request.getSession().setAttribute("customer", customer);
+            }
+        }
+
+        chain.doFilter(request, response);
     }
 
 

@@ -28,7 +28,7 @@
     <c:forEach var="item" items="${itemList}">
         <tr>
             <td>
-                <c:url var="url" scope="page" value= "/login">
+                <c:url var="url" scope="page" value= "/new_item_cart">
                     <c:param name="id" value="${item.id}"/>
                 </c:url>
                 <a href="${url}"> ${item.id} </a>
@@ -40,14 +40,14 @@
     </c:forEach>
 </table>
 
-<c:url value="/login" var="urlLogin" scope="page" />
+<c:url value="/shop" var="urlLogin" scope="page" />
 <form action="${urlLogin}">
     <input type="submit" value="logowanie"/>
 </form>
-<a href="/WebShop/logout">wyloguj</a>
+<a href="/logout">wyloguj</a>
 <a href="/shop">shop</a>
 </br>
-<a href="http://localhost:8080/WebShop/Test">strona testowa</a>
+<a href="/test">strona testowa</a>
 <a href="/register">Rejestracja</a>
 </br>
 </body>

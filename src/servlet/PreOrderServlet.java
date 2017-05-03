@@ -25,6 +25,7 @@ public class PreOrderServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/plain;charset=utf-8");
         PaymentDao paymentDao = (PaymentDao) request.getAttribute("paymentDao");
         ShippingDao shippingDao = (ShippingDao) request.getAttribute("shippingDao");
 

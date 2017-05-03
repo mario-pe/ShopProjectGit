@@ -16,22 +16,22 @@
 </head>
 <body>
 ${error}
-    <form method="post">
-        <table>
-            <tr>
-                <td>login</td>
-                <td> <input type="text" name="login" /></td>
-            </tr>
-            <tr>
-                <td>hasło</td>
-                <td> <input type="password" name="password"/> </td>
-            </tr>
+    <%--<form method="post">--%>
+        <%--<table>--%>
+            <%--<tr>--%>
+                <%--<td>login</td>--%>
+                <%--<td> <input type="text" name="login" /></td>--%>
+            <%--</tr>--%>
+            <%--<tr>--%>
+                <%--<td>hasło</td>--%>
+                <%--<td> <input type="password" name="password"/> </td>--%>
+            <%--</tr>--%>
 
-        </table>
-        <input type="submit" value="Zaloguj" />
+        <%--</table>--%>
+        <%--<input type="submit" value="Zaloguj" />--%>
 
-    </form>
-    <!--  	<form method = "POST" action="j_security_check">
+    <%--</form>--%>
+      	<form method =post action="j_security_check">
         <table>
             <tr>
                 <td>login</td>
@@ -45,7 +45,7 @@ ${error}
         </table>
         <input type="submit" value="Zaloguj" />
         </form>
-         -->
+
     <p>niemasz konta zarejestruj sie </p>
     <a href="/register">Rejestracja</a>
     </br>

@@ -20,6 +20,7 @@ public class CartEditServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/plain;charset=utf-8");
         String action = request.getParameter("action");
         int index = Integer.parseInt(request.getParameter("index"));
 

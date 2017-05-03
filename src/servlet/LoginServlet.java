@@ -16,7 +16,7 @@ import java.io.IOException;
 @WebServlet(name = "LoginServlet", urlPatterns = "/login")
 public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        doGet(request,response);
         CustomerDao customerDao = (CustomerDao) request.getAttribute("customerDao");
         String login = request.getParameter("login");
         String password = request.getParameter("password");
@@ -40,6 +40,7 @@ public class LoginServlet extends HttpServlet {
 
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/plain;charset=utf-8");
         request.getRequestDispatcher("WEB-INF/view/login.jsp").forward(request, response);
     }
 

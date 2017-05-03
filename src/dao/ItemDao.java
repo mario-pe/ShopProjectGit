@@ -1,6 +1,8 @@
 package dao;
 
+import model.Customer;
 import model.Item;
+import model.Role;
 
 import javax.persistence.*;
 import java.util.List;
@@ -40,4 +42,5 @@ public class ItemDao {
         this.em.clear();
         return this.em.find(Item.class, id);
     }
+
 }

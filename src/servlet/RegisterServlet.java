@@ -19,6 +19,7 @@ import java.io.IOException;
 @WebServlet(name = "RegisterServlet", urlPatterns = "/register")
 public class RegisterServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/plain;charset=utf-8");
         CustomerDao custDao = (CustomerDao) request.getAttribute("customerDao");
         AddressDao addressDao = (AddressDao) request.getAttribute("addressDao");
 
@@ -63,6 +64,7 @@ public class RegisterServlet extends HttpServlet {
 
                 if(custDao.addCustomer(customer) && addressDao.addAddress(address))
                 {
+                    custDao.addRole(customer);
                     request.getSession().setAttribute("customer", customer);
                     response.sendRedirect(request.getContextPath() + "/shop");
                 }

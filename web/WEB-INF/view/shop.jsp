@@ -12,7 +12,7 @@
     <title>Sklep</title>
 </head>
 <body>
-<h1>Witaj w Sklepie </h1>
+<h1>Witaj w Sklepie ${customer.firstName} </h1>
 <table>
     <tr>
         <th> link </th>
@@ -44,6 +44,8 @@
 <form action="/cart">
     <input type="submit" value=" sprawdz zawartość wózka"/>
 </form>
+
+<a href="/logout">wyloguj</a>
 
 
 </body>

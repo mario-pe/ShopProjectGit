@@ -43,19 +43,33 @@ public class Test extends HttpServlet {
         OrderDao orderDao = (OrderDao) request.getAttribute("orderDao");
 //        Customer customer = customerDao.getCustomerByLogin("aa");
 
-        Customer customer = customerDao.getCustomerById(122);
-        pw.println(customer.getPassword());
+//        Customer customer = customerDao.getCustomerById(122);
+//        pw.println(customer.getPassword());
+
+        Customer customer1 = new Customer();
+        customer1.setPassword("w");
+        customer1.setFirstName("testRole");
+        customer1.setLastName("MD5");
+        customer1.setLogin("w");
+        if( customerDao.addCustomer(customer1))
+        pw.println("dodano cutomer");
+        else pw.println("nie dodano customer");
 
 
-            pw.println(customer.getFirstName());
-        for(Address a: customer.getAddresses())
-            pw.println(" z adressu " + a.getCity());
-        for(Order o: customer.getOrders())
-            pw.println("z orderu "+ o.getId());
+        if(customerDao.addRole(customer1))
+            pw.println("dodano role");
+        else pw.println("nie dodano role");
 
-        Order order= orderDao.getNewOrderById(21);
-        for(OrderItem oi: order.getOrderItems())
-            pw.println("Order Items z 21 " + oi.getId() );
+
+//            pw.println(customer.getFirstName());
+//        for(Address a: customer.getAddresses())
+//            pw.println(" z adressu " + a.getCity());
+//        for(Order o: customer.getOrders())
+//            pw.println("z orderu "+ o.getId());
+//
+//        Order order= orderDao.getNewOrderById(21);
+//        for(OrderItem oi: order.getOrderItems())
+//            pw.println("Order Items z 21 " + oi.getId() );
 
 
 

@@ -23,7 +23,7 @@ public class CartServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        response.setContentType("text/plain;charset=utf-8");
 
         response.getWriter().println("twoj koszyk  servlet   /cart");
         List<OrderItem> orderItems = (List<OrderItem>) request.getSession().getAttribute("orderItems");
