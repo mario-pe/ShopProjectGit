@@ -16,21 +16,6 @@
 </head>
 <body>
 ${error}
-    <%--<form method="post">--%>
-        <%--<table>--%>
-            <%--<tr>--%>
-                <%--<td>login</td>--%>
-                <%--<td> <input type="text" name="login" /></td>--%>
-            <%--</tr>--%>
-            <%--<tr>--%>
-                <%--<td>hasło</td>--%>
-                <%--<td> <input type="password" name="password"/> </td>--%>
-            <%--</tr>--%>
-
-        <%--</table>--%>
-        <%--<input type="submit" value="Zaloguj" />--%>
-
-    <%--</form>--%>
       	<form method =post action="j_security_check">
         <table>
             <tr>

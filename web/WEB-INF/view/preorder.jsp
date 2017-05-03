@@ -28,7 +28,7 @@ ${customer.firstName} ${info}
                 </br>
             </c:forEach>
             <select name=payment>
-                <c:forEach var="payment" items="${payments}" >
+                <c:forEach var="payment" items="${payments}">
                     <option value="${payment.type}" ${param.payment ? 'selected' : ''}>${payment.type} </option>
 
                 </c:forEach>
@@ -36,8 +36,9 @@ ${customer.firstName} ${info}
             </br>
 
             <select name=shipping>
-                <c:forEach var="shipping" items="${shipping}" varStatus="i=1" >
-                    <option value="${shipping.id}" ${param.shipping  ? 'selected' : ''}> ${i} ${shipping.type} cena: ${shipping.price}</option>
+                <c:forEach var="shipping" items="${shipping}" varStatus="i=1">
+                    <option value="${shipping.id}" ${param.shipping  ? 'selected' : ''}> ${i} ${shipping.type}
+                        cena: ${shipping.price}</option>
                 </c:forEach>
             </select>
 
@@ -50,6 +51,6 @@ ${customer.firstName} ${info}
 <form action="/shop">
     <input type="submit" value="wróc do zakupów"/>
 </form>
-
+<a href="/logout">wyloguj</a>
 </body>
 </html>

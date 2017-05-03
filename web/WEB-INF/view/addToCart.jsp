@@ -56,7 +56,7 @@
 <form action="/cart">
     <input type="submit" value=" zawartosc wózka"/>
 </form>
-
+<a href="/logout">wyloguj</a>
 
 </body>
 </html>

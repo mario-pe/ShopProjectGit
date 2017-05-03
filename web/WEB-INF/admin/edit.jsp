@@ -1,22 +1,18 @@
 <%--
   Created by IntelliJ IDEA.
   User: mario
-  Date: 01.05.2017
-  Time: 07:51
+  Date: 03.05.2017
+  Time: 21:06
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Panel administratora - edycja</title>
 </head>
 <body>
-${info}
-
-
-<form action="/shop">
-    <input type="submit" value="wróc do zakupów"/>
+<form>
+<%--@declare id="producent"--%><label for="producent">${item.producent}</label>
 </form>
-<a href="/logout">wyloguj</a>
 </body>
 </html>

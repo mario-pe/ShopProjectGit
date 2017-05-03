@@ -17,6 +17,7 @@ public class AdminOrderServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.getWriter().print("hakuna matata");
+
+        response.setContentType("text/plain;charset=utf-8");
     }
 }

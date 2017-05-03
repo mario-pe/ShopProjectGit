@@ -84,7 +84,7 @@ ${item.producent} </br> ${item.model}
 <form action="/shop">
     <input type="submit" value="wróc do zakupów"/>
 </form>
-
+<a href="/logout">wyloguj</a>
 
 </body>
 </html>
