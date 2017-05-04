@@ -13,7 +13,7 @@
 </head>
 <body>
 <h1>Obecny asortyment</h1>
-
+${info}
 <form method="get">
     <table border="1">
         <tr>
@@ -34,19 +34,19 @@
                 <td>${item.price}</td>
                 <td>${item.stock}</td>
 
-                <c:url var="url" scope="page" value="/edit">
+                <c:url var="urlDelete" scope="page" value="/edit">
                     <c:param name="id" value="${item.id}"/>
                     <c:param name="action" value="delete"/>
                 </c:url>
                 <td>
-                    <a href="${url}"><input type="button" value="usun"/></a>
+                    <a href="${urlDelete}"><input type="button" value="usun" class="deleteButton"/></a>
                 </td>
-                <c:url var="url" scope="page" value="/edit">
+                <c:url var="urlEdit" scope="page" value="/edit">
                     <c:param name="id" value="${item.id}"/>
                     <c:param name="action" value="edit"/>
                 </c:url>
                 <td>
-                    <a href="${url}"><input type="button" value="edytuj"/></a>
+                    <a href="${urlEdit}"><input type="button" value="edytuj"/></a>
                 </td>
             </tr>
         </c:forEach>
@@ -54,12 +54,8 @@
 </form>
 
 
-<a href="/admin_order"><input type="button" value="nowe zamowienie"/> </a>
-<br/>
-<a href="/edit"><input type="button" value="dodaj produkt"/> </a>
-
 <form action="/edit" method="get">
-    <button type="submit" name="action" value="delete">usun produkt</button>
+    <button type="submit" name="action" value="order">nowe zamowienie</button>
     <button type="submit" name="action" value="add">dodaj produkt</button>
 </form>
 <a href="/logout"><input type="button" value="wyloguj"/></a>

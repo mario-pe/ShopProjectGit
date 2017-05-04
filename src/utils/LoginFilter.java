@@ -28,8 +28,6 @@ public class LoginFilter implements Filter {
 
             if (customer == null) {
 
-
-
                 CustomerDao customerDao = (CustomerDao) req.getAttribute("customerDao");
                 customer = customerDao.getCustomerByLogin(login);
                 request.getSession().setAttribute("customer", customer);
