@@ -20,11 +20,7 @@ public class LoginServlet extends HttpServlet {
         CustomerDao customerDao = (CustomerDao) request.getAttribute("customerDao");
         String login = request.getParameter("login");
         String password = request.getParameter("password");
-
         Customer customer = customerDao.getCustomerByLogin(login);
-//        String md = dao.getMD5(password);
-
-//        if(md.equals(customer.getPassword())) {
 
         try {
             if (password.equals(customer.getPassword())) {

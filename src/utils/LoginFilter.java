@@ -21,6 +21,7 @@ public class LoginFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest) req;
         HttpServletResponse response = (HttpServletResponse) resp;
         response.setCharacterEncoding("utf-8");
+
         String login = request.getRemoteUser();
 
         if (login != null) {

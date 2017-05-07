@@ -1,13 +1,14 @@
 package model;
 
 import javax.persistence.*;
+import java.util.Comparator;
 
 /**
  * Created by mario on 25.04.2017.
  */
 @Entity
 @Table
-public class Item {
+public class Item implements Comparable<Item> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -68,6 +69,24 @@ public class Item {
     public void setStock(int stock) {
         this.stock = stock;
     }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "id=" + id +
+                ", producent='" + producent + '\'' +
+                ", model='" + model + '\'' +
+                ", price=" + price +
+                ", stock=" + stock +
+                ", storehouse=" + storehouse +
+                '}';
+    }
+
+    @Override
+    public int compareTo(Item item) {
+        return (this.producent).compareTo(item.producent);
+    }
+
 
 
 }

@@ -37,7 +37,7 @@ public class OrderServlet extends HttpServlet {
         List<OrderItem> orderItems = (List<OrderItem>) request.getSession().getAttribute("orderItems");
         Shipping shipping = shippingDao.getShippingById(Integer.parseInt(request.getParameter("shipping")));
         /*
-        * preparing of new order
+         * preparing of new order
          */
         Timestamp date = new Timestamp(new Date().getTime());
         Order order = new Order();

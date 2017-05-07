@@ -25,7 +25,7 @@ public class RoleFilter implements Filter {
         CustomerDao customerDao = (CustomerDao) request.getAttribute("customerDao");
         String login = request.getRemoteUser();
         Customer customer =(Customer) request.getSession().getAttribute("customer");
-String role = customerDao.getRoleByLogin(customer.getLogin());
+        String role = customerDao.getRoleByLogin(customer.getLogin());
         if(role.equals("customer")){
             request.getRequestDispatcher(request.getContextPath() + "/shop").forward(request,response);
 

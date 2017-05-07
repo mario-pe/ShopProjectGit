@@ -17,7 +17,7 @@ import java.util.List;
  * Created by mario on 04.05.2017.
  */
 @WebServlet(name = "OrderAdminServlet", urlPatterns = "/pre_order")
-public class OrderAdminServlet extends HttpServlet {
+public class PreOrderServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);
     }

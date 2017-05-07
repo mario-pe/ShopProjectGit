@@ -35,7 +35,7 @@
             <td><input type="text" name="stroehouse"/> </td>
         </tr>
     </table>
-    <input type="submit" value="dodaj" id="submit"/>
+    <input type="submit" value="dodaj" />
 </form>
 </body>
 </html>

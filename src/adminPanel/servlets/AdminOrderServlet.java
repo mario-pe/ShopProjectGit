@@ -28,8 +28,9 @@ public class AdminOrderServlet extends HttpServlet {
         ArrayList<OrderItem> orderItemList = (ArrayList<OrderItem>) request.getSession().getAttribute("orderItemList");
 
         String webInfPath = getServletConfig().getServletContext().getRealPath("WEB-INF");
-        File newFile = new File(webInfPath + "/orders/new/1.xml");
-        String filePath =  webInfPath +"/orders/new/1.xml";
+        File newFile = new File(webInfPath +"\\orders\\ new\\1.xml");
+        String filePath =  webInfPath +"\\orders\\new\\1.xml";
+        System.out.println("sout "+ filePath);
 
 
         FileAction.writeOrderListToFile(orderItemList,filePath);

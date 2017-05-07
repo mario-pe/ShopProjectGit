@@ -49,6 +49,7 @@
         <td>producent</td>
         <td>model</td>
         <td>zamowienie</td>
+        <td>id item</td>
     </tr>
     <c:forEach var="orderItem" items="${orderItemList}" varStatus="i">
         <tr>

@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Timestamp;
 
 /**
  * Created by mario on 25.04.2017.
@@ -76,6 +77,7 @@ public class Test extends HttpServlet {
 //        Payment payment= paymentDao.getPaymentById(1);
 //        Shipping shipping = shippingDao.getShippingById(1);
 //        Storehouse storehouse = storehouseDao.getStorehouseById(2);
+
 //        Timestamp date = new Timestamp(new Date().getTime());
 //        pw.println("Stock magazyn "+ storehouse.getStock());
 //        response.getWriter().println('\n' + "DANE DO ZAMOWIENIA");
