@@ -1,8 +1,5 @@
 package servlet;
 
-import dao.ItemDao;
-import model.Cart;
-import model.Item;
 import model.OrderItem;
 
 import javax.servlet.ServletException;

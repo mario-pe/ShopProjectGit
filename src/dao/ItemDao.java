@@ -1,12 +1,8 @@
 package dao;
 
-import model.Customer;
 import model.Item;
-import model.Role;
 
 import javax.persistence.*;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.util.List;
 
 /**

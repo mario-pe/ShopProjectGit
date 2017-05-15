@@ -1,0 +1,33 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+body{
+    background-color: #d1d1b0;
+    font-family: Georgia;
+    margin:0px 0px 40px;
+}
+#header{
+    background-color: dimgray;
+}
+#option{
+    float:left;
+    width: 10%;
+    height: 80%;
+    background-color: #d1d1d1;
+
+}
+#content{
+    float:left;
+    height: 80%;
+    background-color: darkgray;
+}
+#navigation{
+
+    clear: both;
+    background-color: bisque;
+}
+#footer{
+    clear: both;
+    background-color: aliceblue;
+}

@@ -1,7 +1,6 @@
 package adminPanel.servlets;
 
 import dao.ItemDao;
-import model.Item;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -37,8 +36,6 @@ public class EditServlet extends HttpServlet {
                 request.setAttribute("info", " operacja usuniecia produkt o numrze " + id + " niepowiadła sie ");
             request.getRequestDispatcher(request.getContextPath() + "/admin").forward(request, response);
 
-        }else if(action.equals("order")){
-            request.getRequestDispatcher(request.getContextPath() + "WEB-INF/admin/order_admin.jsp").forward(request, response);
         }
         else {
             int id = Integer.parseInt(request.getParameter("id"));

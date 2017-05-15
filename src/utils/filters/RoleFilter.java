@@ -1,10 +1,11 @@
-package utils;
+package utils.filters;
 
 import dao.CustomerDao;
 import model.Customer;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -26,13 +27,12 @@ public class RoleFilter implements Filter {
         String login = request.getRemoteUser();
         Customer customer =(Customer) request.getSession().getAttribute("customer");
         String role = customerDao.getRoleByLogin(customer.getLogin());
+
         if(role.equals("customer")){
             request.getRequestDispatcher(request.getContextPath() + "/shop").forward(request,response);
-
         }
         else {
-            request.getRequestDispatcher(request.getContextPath() + "/admin").forward(request, response);
-
+            request.getRequestDispatcher(request.getContextPath() + "/welcome_ad").forward(request, response);
         }
         chain.doFilter(req, resp);
     }

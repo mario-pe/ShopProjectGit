@@ -16,6 +16,44 @@
 
 <table border="1">
     <tr>
+        <td></td>
+        <td>
+            <form method="get" action="/sort">
+                <input type="hidden" value="id" name="group">
+                <button type="submit" name="orderBy" value="desc">m</button>
+                <button type="submit" name="orderBy" value="asc">r</button>
+            </form>
+        </td>
+        <td>
+            <form method="get" action="/sort">
+                <input type="hidden" value="producent" name="group">
+                <button type="submit" name="orderBy" value="desc">m</button>
+                <button type="submit" name="orderBy" value="asc">r</button>
+            </form>
+        </td>
+        <td>
+            <form method="get" action="/sort">
+                <input type="hidden" value="model" name="group">
+                <button type="submit" name="orderBy" value="desc">m</button>
+                <button type="submit" name="orderBy" value="asc">r</button>
+            </form>
+        </td>
+        <td>
+            <form method="get" action="/sort">
+                <input type="hidden" value="price" name="group">
+                <button type="submit" name="orderBy" value="desc">m</button>
+                <button type="submit" name="orderBy" value="asc">r</button>
+            </form>
+        </td>
+        <td>
+            <form method="get" action="/sort">
+                <input type="hidden" value="stock" name="group">
+                <button type="submit" name="orderBy" value="desc">m</button>
+                <button type="submit" name="orderBy" value="asc">r</button>
+            </form>
+        </td>
+    </tr>
+    <tr>
         <td>nr</td>
         <td>id</td>
         <td>producent</td>

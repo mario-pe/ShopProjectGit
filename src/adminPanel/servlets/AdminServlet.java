@@ -2,6 +2,7 @@ package adminPanel.servlets;
 
 import dao.ItemDao;
 import model.Item;
+import model.OrderItem;
 
 import javax.annotation.security.DeclareRoles;
 import javax.servlet.ServletException;

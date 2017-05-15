@@ -1,7 +1,6 @@
 package model;
 
 import javax.persistence.*;
-import java.util.Comparator;
 
 /**
  * Created by mario on 25.04.2017.

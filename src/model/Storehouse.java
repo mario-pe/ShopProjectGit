@@ -15,7 +15,7 @@ public class Storehouse {
     private int quantity;
     private int stock;
 
-    @OneToMany(targetEntity=Item.class,mappedBy="storehouse",fetch=FetchType.EAGER)
+    @OneToMany(targetEntity= Item.class,mappedBy="storehouse",fetch=FetchType.EAGER)
     private Set<Item> items;
 
     public int getId() {

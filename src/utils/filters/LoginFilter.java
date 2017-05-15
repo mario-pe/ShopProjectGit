@@ -1,4 +1,4 @@
-package utils;
+package utils.filters;
 
 import dao.CustomerDao;
 import model.Customer;

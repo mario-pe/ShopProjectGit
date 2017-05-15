@@ -1,7 +1,6 @@
 package servlet;
 
 import dao.ItemDao;
-import model.Cart;
 import model.Customer;
 import model.Item;
 
@@ -11,9 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Stack;
 
 /**
  * Created by mario on 26.04.2017.
@@ -32,8 +29,8 @@ public class ShopServlet extends HttpServlet {
         Customer c = (Customer) request.getSession().getAttribute("customer");
 
 
-
         request.getRequestDispatcher("WEB-INF/view/shop.jsp").forward(request, response);
+
 
 
     }
