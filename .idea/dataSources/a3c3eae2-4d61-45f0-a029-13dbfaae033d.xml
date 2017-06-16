@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="shop_db@localhost">
-  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.1">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.2">
     <root id="1"/>
     <schema id="2" parent="1" name="shop_db">
       <Current>1</Current>
@@ -12,8 +12,8 @@
     <schema id="6" parent="1" name="shop"/>
     <schema id="7" parent="1" name="sys"/>
     <schema id="8" parent="1" name="test"/>
-    <schema id="9" parent="1" name="testkasia"/>
-    <schema id="10" parent="1" name="webshop"/>
+    <schema id="9" parent="1" name="webshop"/>
+    <schema id="10" parent="1" name="przedszkole"/>
     <table id="11" parent="2" name="address"/>
     <table id="12" parent="2" name="admin"/>
     <table id="13" parent="2" name="customer"/>

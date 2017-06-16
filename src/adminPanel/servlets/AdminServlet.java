@@ -26,7 +26,10 @@ public class AdminServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/plain;charset=utf-8");
-
+        String sSize = request.getServletContext().getInitParameter("size");
+        int size = Integer.parseInt(sSize);
+        System.out.println("size " + size);
+        request.getSession().setAttribute("size", size);
         ItemDao itemDao = (ItemDao) request.getAttribute("itemDao");
         List<Item> itemList = itemDao.getItems();
         request.getSession().setAttribute("itemList", itemList);

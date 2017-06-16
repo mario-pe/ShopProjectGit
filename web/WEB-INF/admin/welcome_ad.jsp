@@ -17,6 +17,9 @@
 <a href="/admin">sprawdz stan magazynowy</a> <br>
 <a href="/edit?action=add">dodaj nowy produkt</a><br>
 <a href="/order_form">przygotuj zamowienie do hurtowni</a><br>
+</form>
+<a href="/logout"><input type="button" value="wyloguj"/></a>
 
+</form>
 </body>
 </html>

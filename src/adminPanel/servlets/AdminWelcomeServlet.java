@@ -38,11 +38,22 @@ public class AdminWelcomeServlet extends HttpServlet {
                 group = cookie.getValue();
             }
         }
-//        if (visitHistory != null && !visitHistory.equals("")) {
-//            request.getRequestDispatcher(visitHistory).forward(request, response);
-//
-//        } else {
-            request.getRequestDispatcher("WEB-INF/admin/welcome_ad.jsp").forward(request, response);
-//        }
+        if (visitHistory != null && visitHistory.equals("http://localhost:8080/admin")) {
+                request.getRequestDispatcher(request.getContextPath() + "/admin").forward(request, response);
+
+        } else if (visitHistory != null && visitHistory.equals("http://localhost:8080/edit?action=add")) {
+            request.getRequestDispatcher(request.getContextPath() + "/add_item").forward(request, response);
+
+
+        } else if (visitHistory != null && visitHistory.equals("http://localhost:8080/edit?id=4&action=edit")) {
+            request.getRequestDispatcher(request.getContextPath() + "/edit").forward(request, response);
+
+        } else if (visitHistory != null && visitHistory.equals("http://localhost:8080/order_form")) {
+            request.getRequestDispatcher(request.getContextPath() + "/order_form").forward(request, response);
+
+        } else {
+            request.getRequestDispatcher(request.getContextPath() + "WEB-INF/admin/welcome_ad.jsp").forward(request, response);
+
+        }
     }
 }

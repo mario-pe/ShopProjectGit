@@ -27,11 +27,6 @@ public class ShopServlet extends HttpServlet {
         List<Item> itemList = itemDao.getItems();
         request.getSession().setAttribute("itemList", itemList);
         Customer c = (Customer) request.getSession().getAttribute("customer");
-
-
-        request.getRequestDispatcher("WEB-INF/view/shop.jsp").forward(request, response);
-
-
-
+        request.getRequestDispatcher(request.getContextPath() + "WEB-INF/view/shop.jsp").forward(request, response);
     }
 }

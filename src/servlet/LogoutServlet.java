@@ -37,6 +37,8 @@ public class LogoutServlet extends HttpServlet {
         response.addCookie(orderByC);
         response.addCookie(groupC);
 
+        System.out.println("cookie " + link);
+
         request.logout();
         response.sendRedirect(request.getContextPath()+"/index");
     }

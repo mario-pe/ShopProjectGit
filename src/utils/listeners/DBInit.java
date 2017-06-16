@@ -21,8 +21,7 @@ public class DBInit implements ServletRequestListener {
     public void requestInitialized(ServletRequestEvent servletRequestEvent) {
         EntityManager em = DBConfig.createEntityManager();
         AddressDao addressDao = new AddressDao(em);
-    	 CustomerDao customerDao = new CustomerDao(em);
-
+        CustomerDao customerDao = new CustomerDao(em);
         ItemDao itemDao = new ItemDao(em);
         OrderItemDao orderItemDao = new OrderItemDao(em);
         PaymentDao paymentDao = new PaymentDao(em);
@@ -32,10 +31,9 @@ public class DBInit implements ServletRequestListener {
         OrderDao orderDao = new OrderDao(em);
 
 
-
         ServletRequest servletRequest = servletRequestEvent.getServletRequest();
-        servletRequest.setAttribute("customerDao",customerDao);
-        servletRequest.setAttribute("addressDao",addressDao);
+        servletRequest.setAttribute("customerDao", customerDao);
+        servletRequest.setAttribute("addressDao", addressDao);
         servletRequest.setAttribute("itemDao", itemDao);
         servletRequest.setAttribute("orderItemDao", orderItemDao);
         servletRequest.setAttribute("paymentDao", paymentDao);

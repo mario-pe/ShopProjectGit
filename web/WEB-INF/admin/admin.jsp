@@ -91,6 +91,12 @@ ${info}
                 <td>
                     <a href="${urlEdit}"><input type="button" value="edytuj"/></a>
                 </td>
+                <td>
+
+                        <c:if test="${item.stock < size}" >
+                        <b>!!!</b>
+                        </c:if>
+                </td>
             </tr>
         </c:forEach>
     </table>
@@ -102,8 +108,9 @@ ${info}
     <button type="submit" name="action" value="add">dodaj produkt</button>
 </form>
 <a href="/logout"><input type="button" value="wyloguj"/></a>
-</body>
+
 </form>
 <a href="/order_form"><input type="button" value="nowe zamowienie"/></a>
+
 </body>
 </html>
